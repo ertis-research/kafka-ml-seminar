@@ -1,2 +1,3 @@
-# kafka-ml-seminar
-Seminar Course of Kafka-ML
+# Kafka-ML Seminar Course
+
+Description TBD
