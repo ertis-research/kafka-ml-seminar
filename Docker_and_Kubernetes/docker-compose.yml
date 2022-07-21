@@ -1,0 +1,22 @@
+version: "3"
+services:
+  web:
+    # replace username/repo:tag with your name and image details
+    image: XXX/web:part1
+    ports:
+      - "4000:80"
+    networks:
+      - webnet
+      
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"   
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - webnet
+
+networks:
+  webnet:
