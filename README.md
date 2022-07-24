@@ -9,6 +9,14 @@ An introduction to Docker and Kubernetes, creating our own containers and orches
 - [Docker](https://www.docker.com/)
 - [kubernetes>=v1.15.5](https://kubernetes.io/)
 
+### Steps before class:
+```bash
+docker pull nodered/node-red:latest
+docker pull zookeeper:3.5.4-beta
+docker pull ertis/kafka:2.12-2.2.1
+docker pull ertis/flightradar24tokafka
+```
+
 ## 2. Apache Kafka
 Exploring one of the most widely used message queues in big data systems and data streams. First producers and consumers with Kafka.
 
@@ -19,7 +27,7 @@ Exploring one of the most widely used message queues in big data systems and dat
 ## 3. TensorFlow
 Hand-ons with one of the most widely used machine learning frameworks in use today.
 
-###  Requirements
+###  Steps before class:
 Pull the Tensorflow image before class:
 ```bash
 docker pull tensorflow/tensorflow:2.9.1-jupyter
@@ -27,7 +35,7 @@ docker pull tensorflow/tensorflow:2.9.1-jupyter
 
 Execute the Tensorflow Jupyter:
 ```bash
-docker run -it -p 8888:8888 tensorflow/tensorflow:2.9.1-jupyter
+    docker run -it -p 8888:8888 tensorflow/tensorflow:2.9.1-jupyter
 ```
 
 ## 4. Kafka-ML
