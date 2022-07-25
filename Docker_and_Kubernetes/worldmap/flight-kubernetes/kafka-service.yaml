@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-cluster
+  labels:
+    app: kafka
+spec:
+  selector:
+    app: kafka
+  type: LoadBalancer
+  ports:
+  - name: "9094"
+    port: 9094
+    targetPort: 9094
+  - name: "9092"
+    port: 9092
+    targetPort: 9092
+

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flightradar24-to-kafka-deployment
+  labels:
+    app: flightradar24-to-kafka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flightradar24-to-kafka
+  template:
+    metadata:
+      labels:
+        app: flightradar24-to-kafka
+    spec:
+      containers:
+      - env:
+        - name: BROKER_LIST
+          value: kafka-cluster:9092
+        - name: CONNECTION_TIMEOUT
+          value: "100000"
+        - name: KAFKA_TOPIC
+          value: ertisdemo
+        - name: LAT
+          value: "37.6"
+        - name: LON
+          value: "-4.6"
+        - name: RADIUS
+          value: "1"
+        - name: REFRESH_INTERVAL
+          value: "3000"
+        image: dgarridouma/flight:kafka
+        name: flightradar24-to-kafka

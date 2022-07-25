@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-red-flight-deployment
+  labels:
+    app: node-red-flight
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-red-flight
+  template:
+    metadata:
+      labels:
+        app: node-red-flight
+    spec:
+      containers:
+      - name: web
+        image: dgarridouma/node-red-flight:1
+        ports:
+        - containerPort: 1880
