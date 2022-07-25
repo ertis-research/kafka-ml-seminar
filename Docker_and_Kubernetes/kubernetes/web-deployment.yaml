@@ -5,7 +5,7 @@ metadata:
   labels:
     app: web
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: web
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: web
-        image: dgarridouma/get-started:part2
+        image: cristianmfer/get-started:part2
         ports:
         - containerPort: 80
