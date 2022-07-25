@@ -24,6 +24,19 @@ Exploring one of the most widely used message queues in big data systems and dat
 - [Python 3.6-3.9](https://www.python.org/downloads/)
 - [Confluent Kafka library](https://pypi.org/project/confluent-kafka/)
 
+###  Steps before class:
+Pull Zookeeper, Kafka and Kafka manager images:
+```bash
+docker pull confluentinc/cp-zookeeper:7.0.1
+docker pull confluentinc/cp-kafka:7.0.1
+docker pull deltaprojects/kafka-manager:v3.0.0.6-2
+```
+
+And install the confluent kafka library:
+```bash
+python3 -m pip install confluent-kafka
+```
+
 ## 3. TensorFlow
 Hand-ons with one of the most widely used machine learning frameworks in use today.
 
