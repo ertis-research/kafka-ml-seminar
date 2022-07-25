@@ -1,0 +1,87 @@
+version: "3.7"
+services:
+  # Zookeeper service for Kafka synchronization
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.0.1
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+  
+  # Kafka Broker
+  broker:
+    image: confluentinc/cp-kafka:7.0.1
+    hostname: broker
+    container_name: broker
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1 # Kafka Broker ID must be unique 
+      KAFKA_JMX_PORT: 49999 # JMX port for metric monitorization
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_ADVERTISED_LISTENERS: LISTENER_1://broker:29092,LISTENER_2://127.0.0.1:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_1:PLAINTEXT,LISTENER_2:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_1 # Listener for container communication
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1 # Replication for offset topic (default 3)
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0 # Group leader does not spend time to rebalance
+      KAFKA_DELETE_TOPIC_ENABLE: "true"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+
+    # Kafka Broker
+  broker1:
+    image: confluentinc/cp-kafka:7.0.1
+    hostname: broker1
+    container_name: broker1
+    depends_on:
+      - zookeeper
+    ports:
+      - "9093:9093"
+    environment:
+      KAFKA_BROKER_ID: 2 # Kafka Broker ID must be unique 
+      KAFKA_JMX_PORT: 49999 # JMX port for metric monitorization
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_ADVERTISED_LISTENERS: LISTENER_1://broker1:29093,LISTENER_2://127.0.0.1:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_1:PLAINTEXT,LISTENER_2:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_1 # Listener for container communication
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1 # Replication for offset topic (default 3)
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0 # Group leader does not spend time to rebalance
+      KAFKA_DELETE_TOPIC_ENABLE: "true"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+
+  # Kafka Manager GUI to configure Kafka
+  kafka_manager:
+    image: deltaprojects/kafka-manager:v3.0.0.6-2
+    ports:
+      - "9000:9000"
+    depends_on:
+      - zookeeper
+      - broker
+    environment:
+      ZK_HOSTS: zookeeper:2181
+      KAFKA_MANAGER_USERNAME: admin # Identification for the GUI
+      KAFKA_MANAGER_PASSWORD: bigdata # Pss for the GUI
+      JMX_PORT: 49999
+
+  # Schema Registry service
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.1.0
+    hostname: schema-registry
+    container_name: schema-registry
+    depends_on:
+      - zookeeper
+      - broker
+    ports:
+      - '8081:8081'
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: "broker:29092"
+
+networks:
+  default:
+    name: teaching-week
