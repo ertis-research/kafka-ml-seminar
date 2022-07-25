@@ -25,7 +25,7 @@ Exploring one of the most widely used message queues in big data systems and dat
 - [Confluent Kafka library](https://pypi.org/project/confluent-kafka/)
 
 ###  Steps before class:
-Pull Zookeeper, Kafka and Kafka manager images:
+Pull Zookeeper, Kafka and Kafka manager images from a terminal:
 ```bash
 docker pull confluentinc/cp-zookeeper:7.0.1
 docker pull confluentinc/cp-kafka:7.0.1
