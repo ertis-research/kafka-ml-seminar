@@ -52,7 +52,7 @@ docker run -it -p 8888:8888 tensorflow/tensorflow:2.9.1-jupyter
 ```
 
 ## 4. Kafka-ML
-After the introduction of the main technologies around [Kafka-ML](https://github.com/ertis-research/kafka-ml/), we will start using this open-source framework to carry out machine learning with data streams. We will also discover the main features of Kafka-ML
+After the introduction of the main technologies around [Kafka-ML](https://github.com/ertis-research/kafka-ml/), we will start using this open-source framework to carry out machine learning with data streams. We will also discover the main features of Kafka-ML such as incremental learning and distributed model management.
  
 ###  Steps before class:
 Pull the following images from a terminal:
