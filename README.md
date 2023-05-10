@@ -6,7 +6,7 @@ This course aims to provide an overview of the technologies related to [Kafka-ML
 An introduction to Docker and Kubernetes, creating our own containers and orchestrating them in Kubernetes. We will explore the example [Flightradar24-to-kafka-to-node-red-worldmap](https://github.com/ertis-research/flightradar24-to-kafka-to-node-red-worldmap) based on Docker containers to visualize the flights around Malaga in the worldmap Node-RED plugin.
 
 ### Requirements
-- [Docker Desktop]([https://www.docker.com/](https://www.docker.com/products/docker-desktop/))
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ### Steps before class:
 ```bash
@@ -22,7 +22,7 @@ Exploring one of the most widely used message queues in big data systems and dat
 ###  Requirements
 - [Python](https://www.python.org/downloads/)
 - [Confluent Kafka library](https://pypi.org/project/confluent-kafka/)
-- [Docker Desktop]([https://www.docker.com/](https://www.docker.com/products/docker-desktop/))
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ###  Steps before class:
 Pull Zookeeper, Kafka and Kafka manager images from a terminal:
