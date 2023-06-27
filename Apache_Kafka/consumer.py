@@ -4,7 +4,7 @@ def main():
     
     # Consumer creation
     consumer = Consumer({
-        'bootstrap.servers': 'localhost:9094', # Kafka Brokers, configure properly
+        'bootstrap.servers': 'localhost:9092', # Kafka Brokers, configure properly
         'group.id': 'incheon', # Group ID. Keep same ID for costumer in the group
         'auto.offset.reset': 'earliest' # Offset configuration: earliest, latest
     })
