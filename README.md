@@ -64,6 +64,13 @@ After the introduction of the main technologies around [Kafka-ML](https://github
 > Kafka-ML is an open-source framework that presents a paradigm shift from traditional and static datasets used in ML/AI frameworks into continuous and dynamic data streams, offering a user-friendly, ready-to-use and open platform to the community that allows managing ML/AI pipeline steps such as training and inference deployment in productions environments. All of the Kafka-ML components have been containerized so that they can run as Docker containers. This not only enables easy portability of the architecture, isolation between instances, and fast setup support for different platforms, but also their management and monitoring through Kubernetes. Kubernetes manages the life cycle of Kafka-ML and its components.
 
 ###  Steps before class:
+
+Install Kafka and TensorFlow libraries:
+
+```bash
+python3 -m pip install tensorflow kafka-python==2.0.2
+```
+
 Pull the following images from a terminal:
 ```bash
 docker pull ertis/kafka-ml-backend:v1.0
