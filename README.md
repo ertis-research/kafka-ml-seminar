@@ -65,13 +65,19 @@ After the introduction of the main technologies around [Kafka-ML](https://github
 
 ###  Steps before class:
 
-Install Kafka and TensorFlow libraries:
+1. Get the [Kafka-ML repository](https://github.com/ertis-research/kafka-ml/) by downloading the ZIP folder, or by using Git:
+
+```bash
+git clone https://github.com/ertis-research/kafka-ml.git
+```
+
+2. Install Kafka and TensorFlow libraries:
 
 ```bash
 python3 -m pip install tensorflow kafka-python==2.0.2
 ```
 
-Pull the following images from a terminal:
+3. Pull the following images from a terminal:
 ```bash
 docker pull ertis/kafka-ml-backend:v1.0
 docker pull ertis/kafka-ml-frontend:v1.0
