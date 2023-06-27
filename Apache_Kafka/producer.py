@@ -18,7 +18,7 @@ def delivery_callback(err, msg):
                                                                          msg.latency()))
 
 def main():
-    conf = {'bootstrap.servers': "localhost:9094"} # Kafka Brokers, configure properly
+    conf = {'bootstrap.servers': "localhost:9092"} # Kafka Brokers, configure properly
     producer = Producer(conf) # Define the producer
     # Send a message with Kafka
     producer.produce("iot", key="clave", value="Hello world!", callback=delivery_callback)
